@@ -1,7 +1,7 @@
 ---
 name: shared-knowledge
 description: 九院放疗中心共享知识库——三台电脑同步的临床经验、规则、偏好、参考文献。Shared knowledge base for all three computers.
-version: 1.0.0
+version: 1.3.0
 author: Shanghai Ninth People's Hospital Radiation Oncology Center
 license: CC BY-NC-SA 4.0
 ---
@@ -163,7 +163,7 @@ license: CC BY-NC-SA 4.0
 
 ## 五、AI 放疗靶区勾画技能生态
 
-> 7个技能已上线 GitHub (https://github.com/antica1/)，可加载到 Hermes Agent / Claude Code / Codex 等平台使用。面向年轻放疗医生和小放疗中心。
+> 16 个技能已上线 GitHub (https://github.com/antica1/)，可加载到 Hermes Agent / Claude Code / Codex 等平台使用。面向年轻放疗医生和小放疗中心。
 
 | 技能仓库 | 内容 |
 |---------|------|
@@ -174,6 +174,15 @@ license: CC BY-NC-SA 4.0
 | `oral-oropharynx-postop-rt-targets` | 口腔/口咽术后靶区 |
 | `sinonasal-rt-targets` | 鼻腔鼻窦放疗靶区 |
 | `salivary-gland-rt-targets` | 唾液腺癌放疗靶区 |
+| `laryngeal-hypopharyngeal-rt-targets` | 喉癌/下咽癌放疗靶区 |
+| `head-neck-dvh-review` | DVH 计划审核 |
+| `head-neck-reirradiation` | 再程放疗方案 |
+| `port-oral-postop` | 口腔癌术后 PORT（子模块） |
+| `port-oropharynx-postop` | 口咽癌术后 PORT（子模块） |
+| `oropharynx-definitive-rt` | 口咽癌根治性 RT（子模块） |
+| `larynx-hypopharynx-postop` | 喉/下咽术后 PORT（子模块） |
+| `larynx-hypopharynx-definitive` | 喉/下咽根治性 RT（子模块） |
+| `neoadjuvant-deescalation` | 化免新辅助后降级（子模块） |
 
 ### 飞书 Bot 信息
 
