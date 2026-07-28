@@ -1,7 +1,7 @@
 ---
 name: shared-knowledge
 description: 九院放疗中心共享知识库——三台电脑同步的临床经验、规则、偏好、参考文献。Shared knowledge base for all three computers.
-version: 1.3.0
+version: 1.4.0
 author: Shanghai Ninth People's Hospital Radiation Oncology Center
 license: CC BY-NC-SA 4.0
 ---
@@ -90,7 +90,14 @@ license: CC BY-NC-SA 4.0
   - 第二层：同侧淋巴逆流（≥3 LN+ 或 ENE+）→对侧颈
   - 第三层：瘤种特定补充
 
-### 降级规则
+### 喉/下咽专项
+
+- **V区豁免循证**（Looman 2026, *Radiother Oncol*, 390 例多中心）：同侧 V 区转移 11%，对侧 3%。II/III 区阴性时 V 区降至 **1%**——V 区转移为序贯事件，非独立跳跃转移
+- **T2 声门癌高危 ENI 指征**：广泛声门上侵犯 / 广泛声门下侵犯 / 前连合+深层扩展 / 外生型大体积 → 同侧 II-III（50 Gy）
+- **T4 喉癌 PTV 外放**：喉随吞咽上下移动→PTV 上方外扩 **1 cm**，前界 5 mm，其他 3 mm。PTV 前界超出皮缘→颈前填 5 mm bolus
+- **术后 GTV 铁律**：无论术后病理显示治疗后改变/完全缓解，GTV 必须参考**化免前/术前**影像。化疗前侵犯区域必须纳入 CTV1
+- **RP 转移与下咽亚部位**：后壁/外侧壁/梨状窝外侧壁→高 RP 风险（必照，上界 C1）；环后区→低 RP 风险（MRI 阴性可豁免同侧）
+- **下咽癌食管第二原发 30%**——内镜务必包含胃镜+碘染色
 
 - **降级三梯度**：pCR→降范围优先。MPR→60 Gy 维持。non-MPR→60-66 Gy 不降
 - **手术降级调节因子**：小中心手术/非标准手术→即使 pCR 也不降级
@@ -113,6 +120,10 @@ license: CC BY-NC-SA 4.0
 
 | 文献 | 出处 | 关键数据 |
 |------|------|---------|
+| Looman 2026 下咽癌淋巴转移 | *Radiother Oncol* 2026 | 390 例：V区同侧 11%/对侧 3%/II-III阴性→1% |
+| ASTRO/VA 2025 DVH 约束共识 | ASTRO/VA 2025 | 6种肿瘤统一剂量约束，头颈：对侧腮腺≤26Gy，三级约束体系 |
+| 陈娟学瘤笔记 48 篇 | 微信公众号 | NPC全系列（颅底孔道/各T分期/3100例转移率/马骏三大RCT） |
+| 魔都追梦天使 10 篇 | 微信公众号 | 喉/下咽病例拆解+ASTRO限量+口咽综述+喉癌T2-T4实战 |
 | ICAR 2024 Sinonasal Tumors | Int Forum Allergy Rhinol 2024 | 上颌窦 SCC N+ 20.7%，鼻腔 SCC N+ 9.3%，全程 1/3 颈部转移 |
 | SFRO 2025 法国唾液腺癌放疗指南 | Cancer Radiother 2025 | 颈清扫 ≥15 LN pN0→豁免 ENI；面神经→内听道；ACC 74 Gy |
 | 朱奕 2016 鼻腔鼻窦 ACC 104 例 | 中国癌症杂志 2016 | 内镜优于开放；切缘阳性不影响 OS/DFS（跳跃性 PNI） |
@@ -155,7 +166,13 @@ license: CC BY-NC-SA 4.0
 - 术语极精确——"眼前庭"≠"眼前节"，"泪腺"≠"泪膜"
 - WPS Office——CSV UTF-8 BOM
 - 语音输入——偶有同音错字→自动纠正
-- GitHub 不开 PR——直接 push master
+### 工具与环境
+
+- **Python 工具链**：Pandoc 3.10（文档互转）/ Marker v2.0（PDF→MD）/ Crawl4AI v0.9.2（网页爬取）/ easyocr（扫描版 OCR）
+- **pip 清华镜像**：`-i https://pypi.tuna.tsinghua.edu.cn/simple` 加速国内下载
+- **Windows 注意**：`fcntl` 不可用→用 `portalocker` 替代；`python`(3.11) vs `python3`(3.14) 版本差异
+- **微信文章爬取**：Python `urllib` + SSL 绕过 + 3-15s 间隔限流 + 约 50 次/会话后触发验证墙
+- **Skill 验证工作流**：18 个 Skill 批量扫描→版本号/表格列数/编码检查→自动修复→Git 同步
 - 飞书群→自动记录病例到 case-log
 - 任何一台电脑发现的临床规则→写入本文件
 
@@ -202,5 +219,6 @@ license: CC BY-NC-SA 4.0
 | 日期 | 来源电脑 | 更新内容 |
 |------|---------|---------|
 | 2026-07-22 | 本机 | 初始创建——合并已知规则和偏好 |
-| **2026-07-22** | **本机** | **正式上线——唾液腺/鼻腔鼻窦/PNI分级/降级/ICAR 2024/SFRO 2025 + 9篇参考文献** |
-| **2026-07-22** | **本机** | **临床试验 NCT07579598 + AI Skills 生态 + 协作联系人** |
+| 2026-07-22 | 本机 | 唾液腺/鼻腔鼻窦/PNI分级/降级/ICAR 2024/SFRO 2025 + 9篇参考文献 |
+| 2026-07-22 | 本机 | 临床试验 NCT07579598 + AI Skills 生态 + 协作联系人 |
+| **2026-07-28** | **办公室** | **喉/下咽6项循证规则 + Looman 2026 / ASTRO 2025 / 陈娟48篇 / 魔都10篇 + 工具链+微信爬取+Skill验证工作流** |
