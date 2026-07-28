@@ -59,6 +59,14 @@ license: CC BY-NC-SA 4.0
 - **CAP 化疗方案**：顺铂+多柔比星+环磷酰胺——用于晚期/复发/转移 ACC
 - **ACC 随访 15 年**（SFRO 2025）——肺转移可发生在 10 年后
 
+### 临床试验
+
+- **NCT07579598**：ADC+SBRT 治疗复发/转移性涎腺癌，Phase II，上海九院牵头
+  - 开组：2026年7月1日
+  - 目标入组：40例
+  - 已入组：6例 ACC（Cohort 1: EGFR-ADC+SBRT）
+  - 协作方：ACCRF（Nikki 为联系人）
+
 ### 鼻腔鼻窦癌专项
 
 - **上颌窦 SCC cN0**：N+ 率 20.7%（ICAR 2024 NCDB 6448 例）。即使 cN0 也要照同侧 ⅠB+Ⅱ+Ⅲ
@@ -153,9 +161,37 @@ license: CC BY-NC-SA 4.0
 
 ---
 
+## 五、AI 放疗靶区勾画技能生态
+
+> 7个技能已上线 GitHub (https://github.com/antica1/)，可加载到 Hermes Agent / Claude Code / Codex 等平台使用。面向年轻放疗医生和小放疗中心。
+
+| 技能仓库 | 内容 |
+|---------|------|
+| `head-neck-acc-rt-targets` | 头颈部腺样囊性癌术后靶区 |
+| `npc-rt-target-delineation` | 鼻咽癌精准靶区勾画 |
+| `orbital-tumor-rt-targets` | 眼眶肿瘤放疗靶区 |
+| `hncup-rt-targets` | 颈部原发不明转移癌放疗靶区 |
+| `oral-oropharynx-postop-rt-targets` | 口腔/口咽术后靶区 |
+| `sinonasal-rt-targets` | 鼻腔鼻窦放疗靶区 |
+| `salivary-gland-rt-targets` | 唾液腺癌放疗靶区 |
+
+### 飞书 Bot 信息
+
+- App ID: `cli_aac17d41a2781cc3`
+- Bot 名称：ZGP放疗AI助手
+- 配置平台：open.feishu.cn → 应用功能 → 机器人
+
+### 协作联系人
+
+- ACCRF: Nikki — NCT07579598 协作方
+- GitHub: antica1
+
+---
+
 ## 更新日志
 
 | 日期 | 来源电脑 | 更新内容 |
 |------|---------|---------|
 | 2026-07-22 | 本机 | 初始创建——合并已知规则和偏好 |
 | **2026-07-22** | **本机** | **正式上线——唾液腺/鼻腔鼻窦/PNI分级/降级/ICAR 2024/SFRO 2025 + 9篇参考文献** |
+| **2026-07-22** | **本机** | **临床试验 NCT07579598 + AI Skills 生态 + 协作联系人** |
