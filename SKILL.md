@@ -1,11 +1,7 @@
 ---
-metadata:
-  hermes:
-    tags: [head-neck, radiotherapy, knowledge-base, shared, clinical-rules]
-    triggers_on: [九院, 放疗中心, 九院规则, 共享知识库, 九院放疗, 临床规则, 放疗规则, 朱国培, 九院体系, 九院经验, 间室放疗, 门加隔壁, 淋巴逆流, QUANTEC四维批判, 口底铁律, 化免新辅助降级, 九院放疗中心, 上海九院, 九院放疗组]
 name: shared-knowledge
 description: 九院放疗中心共享知识库——三台电脑同步的临床经验、规则、偏好、参考文献。Shared knowledge base for all three computers.
-version: 1.4.0
+version: 1.5.0
 author: Shanghai Ninth People's Hospital Radiation Oncology Center
 license: CC BY-NC-SA 4.0
 ---
@@ -226,3 +222,13 @@ license: CC BY-NC-SA 4.0
 | 2026-07-22 | 本机 | 唾液腺/鼻腔鼻窦/PNI分级/降级/ICAR 2024/SFRO 2025 + 9篇参考文献 |
 | 2026-07-22 | 本机 | 临床试验 NCT07579598 + AI Skills 生态 + 协作联系人 |
 | **2026-07-28** | **办公室** | **喉/下咽6项循证规则 + Looman 2026 / ASTRO 2025 / 陈娟48篇 / 魔都10篇 + 工具链+微信爬取+Skill验证工作流** |
+| **2026-07-29** | **办公室** | **GitHub v2.1.0 全面修复：双重frontmatter修复、YAML name统一、metadata/triggers补全、17仓库全部Hermes兼容 + web-search-plus插件+Serper + hermes-skill-factory安装 + NPC 496行完整版恢复 + 旧Skill清理(26→17)** |
+
+### 三台电脑协作经验
+
+- **GitHub 是唯一真相源**——任何一台电脑修改后 push，其他电脑 pull 即可同步
+- **旧Skill清理**：重命名后旧名称文件夹需手动删除，否则 Hermes 加载两个版本
+- **NPC Skill 特殊**：v2.0 扁平化版本（79L）是提纲，完整版（496L）在本地 Hermes→推回 GitHub 恢复
+- **sync-skills.sh** 在 `head-neck-rt-skills/` 目录——修改 skills/ 下文件后运行即可批量推送 17 个独立仓库
+- **Windows 注意**：git-bash 的 `/tmp` 是会话隔离的——后台进程和前台进程的 `/tmp` 是不同目录
+- **插件安装**：用 `hermes plugins install` 而非手动复制，否则 Python 包依赖可能断链
