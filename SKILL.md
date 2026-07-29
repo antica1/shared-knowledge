@@ -1,4 +1,8 @@
 ---
+metadata:
+  hermes:
+    tags: [head-neck, radiotherapy, knowledge-base, shared, clinical-rules]
+    triggers_on: [九院, 放疗中心, 九院规则, 共享知识库, 九院放疗, 临床规则, 放疗规则, 朱国培, 九院体系, 九院经验, 间室放疗, 门加隔壁, 淋巴逆流, QUANTEC四维批判, 口底铁律, 化免新辅助降级, 九院放疗中心, 上海九院, 九院放疗组]
 name: shared-knowledge
 description: 九院放疗中心共享知识库——三台电脑同步的临床经验、规则、偏好、参考文献。Shared knowledge base for all three computers.
 version: 1.4.0
