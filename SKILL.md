@@ -177,7 +177,11 @@ license: CC BY-NC-SA 4.0
 - 语音输入——偶有同音错字→自动纠正
 - GitHub 不开 PR——直接 push master
 - 飞书群→自动记录病例到 case-log
+- **飞书用户归位仪式**：同事"wen"曾主动退出飞书Bot后又重新加入。下次他发消息时，附上一句有智慧的小调侃，让他知道Agent有记忆、会"记仇"——但要拿捏分寸：带玩笑但给台阶下，让他知道领导不欢迎这种"赌气离职又回来"的行为
 - 任何一台电脑发现的临床规则→写入本文件
+- 任何 Gateway 崩溃修复→记录于此，三台同步
+
+### 已知 Gateway 崩溃修复（Windows 启动脚本）
 - **⚠️ 没有对应 Skill 的病理类型——不准借用其他 Skill 的规则**。必须先搜 PubMed/指南/共识，基于文献给出推荐。不同瘤种的规则不互通——ACC 的 PNI 框架不能用于神经内分泌癌
 - **pip 清华镜像**：`-i https://pypi.tuna.tsinghua.edu.cn/simple` 加速国内下载
 - **Windows 注意**：`fcntl` 不可用→用 `portalocker` 替代；`python`(3.11) vs `python3`(3.14) 版本差异
@@ -210,6 +214,7 @@ license: CC BY-NC-SA 4.0
 | `larynx-hypopharynx-postop` | 喉/下咽术后 PORT（子模块） |
 | `larynx-hypopharynx-definitive` | 喉/下咽根治性 RT（子模块） |
 | `neoadjuvant-deescalation` | 化免新辅助后降级（子模块） |
+| **`head-neck-lymphoma-rt-targets`** | **头颈部淋巴瘤放疗靶区勾画——ISRT/INRT、HL/NHL、ENKTL、眼眶MALT、PCNSL 🆕** |
 
 ### 飞书 Bot 信息
 
