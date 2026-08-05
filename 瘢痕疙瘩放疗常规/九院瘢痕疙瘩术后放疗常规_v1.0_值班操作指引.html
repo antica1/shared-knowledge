@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>九院瘢痕疙瘩术后放疗常规（值班操作指引）v1.0</title>
+<style>
+  :root{
+    --main:#1f4e79; --main-light:#eef3f9; --accent:#c00000; --ok:#1e6b3a;
+    --gray:#f5f6f8; --line:#b8c4d0; --text:#1a1a1a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:"微软雅黑","Microsoft YaHei","SimSun",sans-serif; color:var(--text); background:#e8eaed; font-size:14px; line-height:1.65;}
+  .page{max-width:900px; margin:0 auto; background:#fff; padding:40px 48px 56px; box-shadow:0 2px 12px rgba(0,0,0,.12);}
+
+  /* 页头 */
+  .doc-head{border-bottom:3px solid var(--main); padding-bottom:14px; margin-bottom:22px;}
+  .doc-head .org{font-size:15px; color:var(--main); font-weight:700; letter-spacing:2px;}
+  .doc-head h1{font-size:24px; margin:6px 0 4px; color:#0d2c4f;}
+  .doc-head .sub{font-size:13px; color:#555;}
+  .doc-head .meta{margin-top:10px; font-size:12px; color:#666; display:flex; gap:24px; flex-wrap:wrap;}
+  .doc-head .meta b{color:var(--main);}
+
+  /* 标题 */
+  h2{font-size:19px; color:var(--main); margin:34px 0 12px; padding:6px 0 6px 12px; border-left:5px solid var(--main); background:var(--main-light);}
+  h3{font-size:16px; color:#0d2c4f; margin:20px 0 8px;}
+  h4{font-size:14px; margin:14px 0 6px; color:#333;}
+  p{margin:6px 0;}
+  ul,ol{margin:6px 0 6px 22px;}
+  li{margin:3px 0;}
+  .note{background:#fffbe6; border:1px solid #e6d48a; border-left:4px solid #d4a72c; padding:10px 14px; margin:10px 0; font-size:13px; border-radius:0 4px 4px 0;}
+  .warn{background:#fdf0f0; border:1px solid #e3b3b3; border-left:4px solid var(--accent); padding:10px 14px; margin:10px 0; font-size:13px; border-radius:0 4px 4px 0;}
+  .okbox{background:#eef7f0; border:1px solid #b8dcc2; border-left:4px solid var(--ok); padding:10px 14px; margin:10px 0; font-size:13px; border-radius:0 4px 4px 0;}
+
+  /* 表格 */
+  table{width:100%; border-collapse:collapse; margin:10px 0 16px; font-size:13px;}
+  th{background:var(--main); color:#fff; padding:7px 9px; text-align:left; font-weight:600; border:1px solid var(--main);}
+  td{padding:6px 9px; border:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#f7f9fc;}
+  .center{text-align:center;}
+  .star{color:#c98a00;}
+
+  /* 流程步骤 */
+  .flow{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 16px; align-items:stretch;}
+  .step{flex:1; min-width:150px; background:var(--main-light); border:1px solid var(--main); border-radius:6px; padding:10px 12px; font-size:13px; position:relative;}
+  .step .n{display:inline-block; background:var(--main); color:#fff; border-radius:50%; width:22px; height:22px; text-align:center; line-height:22px; font-weight:700; margin-right:6px; font-size:12px;}
+  .step b{color:#0d2c4f;}
+  .arrow{align-self:center; color:var(--main); font-size:20px; font-weight:700;}
+
+  /* 决策分支 */
+  .tree{border:1px solid var(--line); border-radius:8px; overflow:hidden; margin:12px 0 18px;}
+  .tree .root{background:var(--main); color:#fff; padding:10px 14px; font-weight:700; font-size:14px;}
+  .tree .branch{display:flex; flex-wrap:wrap;}
+  .tree .col{flex:1; min-width:260px; padding:12px 14px; border-top:1px solid var(--line);}
+  .tree .col + .col{border-left:1px solid var(--line);}
+  .tree .col h4{margin:0 0 6px; font-size:14px;}
+  .tree .col.simple{background:#f2f8f4;}
+  .tree .col.complex{background:#fdf6f0;}
+  .tree .col.warn{background:#fdf0f0;}
+
+  /* 速查卡 */
+  .card{border:2px solid var(--main); border-radius:8px; padding:14px 18px; margin:14px 0 18px; background:var(--main-light);}
+  .card h3{margin:0 0 8px; color:var(--main); font-size:15px;}
+  .card ul{margin-left:18px;}
+
+  /* 页脚 */
+  .doc-foot{margin-top:40px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:#888; display:flex; justify-content:space-between;}
+
+  @media print{
+    body{background:#fff;}
+    .page{box-shadow:none; padding:16px 20px; max-width:none;}
+    h2{page-break-after:avoid;}
+    table,.tree,.card,.flow{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ================= 页头 ================= -->
+<div class="doc-head">
+  <div class="org">上海交通大学医学院附属第九人民医院放疗中心</div>
+  <h1>瘢痕疙瘩术后放疗常规（值班操作指引）</h1>
+  <div class="sub">适用于南部院区、北部院区；东部院区开业后同步执行　·　内部文件，供放疗科值班医师使用</div>
+  <div class="meta">
+    <span>版本：<b>v1.0</b></span>
+    <span>编制日期：<b>2026年8月</b></span>
+    <span>编制：<b>放疗中心</b></span>
+    <span>修订状态：<b>内部讨论稿</b></span>
+  </div>
+</div>
+
+<div class="note"><b>说明：</b>本常规依据《瘢痕疙瘩规范化辅助放射治疗的专家共识（2026版）》（组织工程与重建外科杂志 2026;22(2):153）编写，并参考GEC-ESTRO近距离治疗规范（2025）、DEGRO指南（2015）、JSW共识（2018）、Ogawa国际算法更新（2020）。本中心619例电子线术后放疗研究（Clin Med 2026）为方案选择提供了经验参考。常规供值班医师独立接诊时使用：按固定流程完成安全排查、风险分层、方案选择与当日处置，复杂病例按第七章明确何时升级、如何升级。<b>病灶内注射治疗与近距离放疗本院暂不开展，相关内容列入附录A、B供参考。</b>文中剂量、分割与各项操作均以专家共识和已核实文献（附PMID）为准。</div>
+
+<!-- ================= 一、总则 ================= -->
+<h2>一、总则</h2>
+<p>1. 瘢痕疙瘩切除术后放疗是整形外科与放疗中心联合治疗的关键环节。<b>术后24小时内（最迟48小时）开始放疗</b>是降低复发率的重要时间窗口。任何值班时段（含16:00–17:00拖班时段）到达的术后患者，均须当日处置，不拒绝、不推诿。</p>
+<p>2. 治疗原则：<b>先保"当日完成"，再保"做得精细"</b>——时间紧迫时先以简单单野电子线完成首次照射，次日再约诊行精确计划（CT定位、多野或调强）。</p>
+<p>3. 放疗总物理剂量原则上<b>不超过20 Gy</b>（国内共识）；剂量目标为 <b>BED₁₀ ≥ 30 Gy</b>（最低不低于20 Gy）。</p>
+<p>4. 所有治疗均需放疗科医师参与决策并签字；值班医师处置后须完成登记表（见第九章），次日由上级医师复核。</p>
+<p>5. 拖班/急诊当日以简单电子线完成应急首照后，<b>次日必须完成患者本人CT基础上的正式定位与完整TPS计划</b>，作为病案记录与医疗举证的主体（见第八章）。</p>
+
+<!-- ================= 二、放疗指征 ================= -->
+<h2>二、放疗指征与咨询沟通</h2>
+<h3>2.1 是否所有瘢痕疙瘩术后都需要放疗？——不是，按指征判断</h3>
+<p>切除＋术后放疗将复发率从单纯切除的50–80%降至10%以下，是控制复发最有效的手段；但放疗并非所有病例的必需。判断分三步：</p>
+<p><b>第一步 鉴别病灶性质</b>：<b>真性瘢痕疙瘩</b>（超出原伤口边缘、蟹足样外扩、持续生长、无自发消退）复发率高，放疗指征强；<b>增生性瘢痕</b>（局限于原伤口范围、常有自发消退倾向）术后不一定需要放疗，可先行硅胶/压力等保守治疗并随访，增生加重再评估。</p>
+<p><b>第二步 放疗指征（术后建议放疗）</b>：①高张力部位（前胸壁、肩部、耻骨上、下腹部）的瘢痕疙瘩；②复发性瘢痕疙瘩（既往复发≥1次）；③长径&gt;2 cm或明显活动（红、痒、痛、持续生长）；④家族史阳性；⑤关节部位影响功能；⑥患者要求最大化控制复发。</p>
+<p><b>第三步 可讨论不放疗的情形</b>：①耳垂/耳廓初发小瘢痕疙瘩（≤1–2 cm、无活动、无家族史）——可讨论注射替代（附录A）或观察；②增生性瘢痕；③儿童（&lt;16岁）；④禁忌部位（甲状腺、性腺、胸腺区）；⑤妊娠期；⑥患者充分知情后拒绝放疗。</p>
+<h3>2.2 咨询患者的回答要点</h3>
+<p>门诊咨询（未手术）的患者，按以下要点回答：</p>
+<ul>
+  <li><b>先讲复发风险对比</b>：单纯切除复发率50–80%；切除＋术后放疗可降至10%以下（本中心619例总复发6.5%）。</li>
+  <li><b>再讲放疗流程</b>：术后24–48小时内开始，共4–5次、每日1次（高危病例可18 Gy/2次间隔1周）；疗程短，不影响正常生活。</li>
+  <li><b>如实讲不良反应</b>：色素沉着约1/3（6–12个月渐退）、皮炎约12%、理论致癌风险极低（&lt;1/1000），需随访≥2年。</li>
+  <li><b>讲清替代与观察选项</b>：低危耳垂小瘢痕可讨论注射替代（附录A）；完全不处理则复发率高，且瘢痕可能继续生长。</li>
+  <li><b>个体化结论</b>：是否放疗取决于病灶性质、部位张力、复发史、大小与活动度、年龄与禁忌——按第五章分层评分给出建议；不做放疗的决定也应在充分知情后作出并登记。</li>
+</ul>
+<div class="warn"><b>值班一句话版本：</b>真性瘢痕疙瘩、高张力部位、有复发史、大而活动者——术后建议放疗；耳垂小初发、增生性瘢痕、儿童、禁忌部位、患者拒绝者——可讨论不放疗，但必须充分告知复发风险。</div>
+
+<!-- ================= 三、值班接诊总流程 ================= -->
+<h2>三、值班接诊总流程（五步）</h2>
+<div class="flow">
+  <div class="step"><span class="n">1</span><b>安全排查</b><br>妊娠、部位禁忌、&lt;16岁、既往放疗史（见第四章清单）</div>
+  <div class="arrow">→</div>
+  <div class="step"><span class="n">2</span><b>评估与分层</b><br>拍照、测量、初发/复发、家族史 → 复发风险评分（第五章）</div>
+  <div class="arrow">→</div>
+  <div class="step"><span class="n">3</span><b>方案选择</b><br>简单瘢痕 → 标准分割（第六章）；复杂瘢痕 → 技术升级（第七章）</div>
+  <div class="arrow">→</div>
+  <div class="step"><span class="n">4</span><b>当日实施</b><br>定位画野、电子线首照、知情同意、登记（第八章）</div>
+  <div class="arrow">→</div>
+  <div class="step"><span class="n">5</span><b>后续安排</b><br>续照计划、随访预约（3/6/12月）、次日上级复核（第九、十章）</div>
+</div>
+
+<!-- ================= 三、安全排查 ================= -->
+<h2>四、第一步：安全排查（值班快速筛查）</h2>
+<p>以下任一情况<b>不得擅自当日放疗</b>，须先记录、联系上级医师或改约评估：</p>
+<table>
+  <tr><th style="width:140px">筛查项</th><th>判断标准</th><th>处置</th></tr>
+  <tr><td>妊娠</td><td>育龄女性须询问末次月经/妊娠可能</td><td><b>绝对禁忌</b>，暂缓并告知产后处理</td></tr>
+  <tr><td>照射野累及甲状腺、性腺、胸腺</td><td>颈部前区、腹股沟、胸骨上区瘢痕</td><td><b>绝对禁忌</b>，改方案或评估替代治疗</td></tr>
+  <tr><td>年龄 &lt; 16岁</td><td>儿童患者</td><td>原则上避免放疗；必须实施须上级会诊+家长知情</td></tr>
+  <tr><td>既往放疗史</td><td>同一部位曾行放疗（外照射或近距离）</td><td>不重复外照射；查首次剂量，上级会诊决定（近距离放疗本院暂未开展，见附录B）</td></tr>
+  <tr><td>乳腺、腮腺、关节区</td><td>照射野涉及上述结构</td><td>相对禁忌：严格控深，评估替代方案</td></tr>
+  <tr><td>下腹部、耻骨部</td><td>低能量X线浅放</td><td>浅层X线本院未配备；以电子线控深为主</td></tr>
+  <tr><td>多处/大面积瘢痕</td><td>需同时大面积照射</td><td>分批分部位，不一次大面积照射</td></tr>
+  <tr><td>切口异常</td><td>活动性出血、感染、皮瓣血运障碍</td><td>联系手术科室评估后再放疗</td></tr>
+</table>
+
+<!-- ================= 四、风险分层 ================= -->
+<h2>五、第二步：复发风险分层</h2>
+<p>瘢痕疙瘩放疗后复发风险的主要影响因素依次为：<b>解剖部位（皮肤张力）＞既往治疗史/复发次数 ＞ 病灶大小与活动度 ＞ 病程（老疤）＞ 家族史</b>。按以下评分表分层：</p>
+
+<table>
+  <tr><th style="width:130px">评分项</th><th>0 分</th><th>1 分</th><th>2 分</th></tr>
+  <tr><td><b>解剖部位</b></td><td>耳垂、耳廓</td><td>面部、颈屈侧、头皮、躯干、四肢</td><td>前胸壁、肩部、耻骨上、下腹部</td></tr>
+  <tr><td><b>既往史</b></td><td>初发，无注射治疗史</td><td>复发1次，或既往激素/5-FU注射史</td><td>复发≥2次，或既往放疗史</td></tr>
+  <tr><td><b>大小与活动度</b></td><td>长径≤2 cm，无红痒痛</td><td>2–5 cm，轻度瘙痒/充血</td><td>&gt;5 cm，明显红痒痛或持续生长</td></tr>
+  <tr><td><b>家族史</b></td><td>无</td><td>有</td><td>—</td></tr>
+  <tr><td><b>病程</b></td><td>&lt;3年</td><td>≥3年（陈旧性"老疤"）</td><td>—</td></tr>
+</table>
+
+<h3>5.1 部位张力分级（"解剖部位"评分的判定依据）</h3>
+<p>皮肤张力目前没有临床常规的定量测量工具（超声测厚、皮肤弹性仪等均停留在研究层面），按解剖部位分级是通行做法，辅以瘢痕形态修正。</p>
+<table>
+  <tr><th style="width:100px">张力等级</th><th>部位</th><th>说明</th></tr>
+  <tr><td><b>极高</b></td><td>前胸壁（胸骨区、锁骨下）、肩部三角肌区、上背部肩胛间、耻骨上、下腹部</td><td>复发率最高；2026年meta回归显示高张力部位复发风险约为低张力部位的3倍（PMID 42207254）</td></tr>
+  <tr><td>高</td><td>腰背、四肢伸侧、颈后</td><td>关节伸侧受活动牵拉</td></tr>
+  <tr><td>中</td><td>躯干侧壁、四肢屈侧、颈前</td><td>—</td></tr>
+  <tr><td><b>低</b></td><td>耳垂、耳廓、眼睑、面中部、头皮</td><td>复发率最低；耳部复发风险约为其他部位的0.4倍（PMID 41015665）</td></tr>
+</table>
+<p>同一部位还存在个体差异，值班时可做三个修正：①<b>瘢痕走向与皮肤张力线（Langer线）</b>——垂直于张力线者张力大，平行者张力小；②<b>生长趋势与形态</b>——持续生长、蟹足样外扩、结节隆起明显者等同高张力（此内容已计入"大小与活动度"评分项）；③<b>生理状态</b>——青春期、妊娠期、肥胖腹部皮肤张力上调。</p>
+
+<table>
+  <tr><th style="width:100px">总分</th><th style="width:100px">分层</th><th>方案指引（详见第六、七章）</th></tr>
+  <tr><td class="center">0–1</td><td class="center"><b>低危</b></td><td>标准方案 20 Gy/4–5次；耳垂可考虑单次10 Gy；<b>耳垂小瘢痕可与手术医师讨论以TAC±5-FU注射替代放疗（见附录A）</b></td></tr>
+  <tr><td class="center">2–3</td><td class="center"><b>中危</b></td><td>标准方案 20 Gy/4次（5 Gy×4，每日1次）</td></tr>
+  <tr><td class="center">4–5</td><td class="center"><b>高危</b></td><td>标准方案 或 少分割 18 Gy/2次；高张力部位复发率高，随访加密（联合注射与近距离放疗本院暂未开展，见附录A、B）</td></tr>
+  <tr><td class="center">≥6</td><td class="center"><b>极高危</b></td><td>少分割 18 Gy/2次（科内会诊）；可转诊至有近距离放疗条件的中心（见附录B）；随访≥5年</td></tr>
+</table>
+
+<div class="note"><b>分层依据说明：</b>各危险因素均有文献支持——解剖部位（张力）为2026年多中心meta回归确认的最强预测因子（PMID 42207254），JSW共识2018亦推荐按部位制定方案；既往治疗史与复发次数（PMID 38897192、41015665）；病灶长径&gt;5 cm（PMID 40346340）；活动度（KAAS评分，PMID 36414722）；家族史与病程（PMID 41903653、40425880）。<b>五项计分与四层划分系本院根据上述证据构建的操作工具，尚无公开指南采用同一计分系统，有待本中心前瞻性数据验证后完善。</b></div>
+
+<div class="warn"><b>注意：</b>分层只决定方案强度，<b>不决定是否放疗</b>——切除的瘢痕疙瘩术后均应放疗（低危耳垂小瘢痕可讨论替代），因为单纯切除复发率高达50–80%。</div>
+
+<!-- ================= 五、简单瘢痕 ================= -->
+<h2>六、第三步（简单瘢痕）：定位、射线与分割</h2>
+<p><b>简单瘢痕的定义：</b>体表平坦或轻度弯曲、切口规整、远离关键器官（甲状腺、乳腺、性腺、眼、关节）的初发或低风险瘢痕，如耳垂、躯干、四肢平坦部位。此类病例<b>值班医师可独立完成当日处置</b>。</p>
+
+<h3>6.1 定位（画野）</h3>
+<ul>
+  <li><b>照射野 = 手术切口＋上下左右各外扩 1.0 cm</b>（专家共识）。沿切口两侧画线，误差不超过0.5 cm。</li>
+  <li>先拆开敷料确认切口走向与长度；以切口为中心画矩形野，四边各超出切口1 cm。</li>
+  <li>拍照存档（作为基线记录），照片包含体表画野。</li>
+  <li>切口不规则者按切口包络画野，不逐段分割。</li>
+  <li>若当日拟先行简单照射、次日精确计划：当日画野可稍放大（外扩1.5 cm）以覆盖误差，次日CT定位时再精确勾画。</li>
+</ul>
+
+<h3>6.2 射线选择</h3>
+<div class="note"><b>设备说明：</b>本院直线加速器仅配备<b>6 MeV电子线</b>一档能量，<b>未配备浅层X线治疗机</b>。文中涉及的更高能量电子线、浅层X线及近距离放疗（附录B）均为知识性内容或转诊用途，本院不实施。</div>
+<table>
+  <tr><th style="width:140px">技术</th><th>适用</th><th>要点</th></tr>
+  <tr><td><b>电子线 6 MeV（本院唯一能量，首选）</b></td><td>绝大多数病例；骨面、神经、腺体邻近部位必须用电子线</td><td>90%剂量深度约1.5–1.8 cm，覆盖多数瘢痕床；表面剂量约75–80%，常规加Bolus（0.5–1 cm）提升表面剂量；深部组织受量极低；瘢痕床深度&gt;1.8 cm时6 MeV覆盖不足，评估3D-CRT/IMRT（见7.3）</td></tr>
+  <tr><td>浅层X线（本院未配备）</td><td>平坦体表低危瘢痕（部分中心经验，本院不用）</td><td>穿透浅（约1 cm），下腹部、耻骨部慎用；低BED方案（12 Gy/6次）证据不足，不推荐</td></tr>
+  <tr><td>Bolus（组织补偿膜）</td><td>体表不规则、表面剂量不足时</td><td>0.5–1 cm 硅胶/水等效材料，紧密贴合无空气间隙；3D打印个体化Bolus用于耳廓等曲面</td></tr>
+  <tr><td>挡铅（Cutout）</td><td>所有电子线照射</td><td>实心铅：铅皮裁剪叠层（2 mm×3层≈6 mm，6 MeV屏蔽足够）或现成铅板组合；开口=射野外缘+约0.3 cm半影补偿；<b>本院无熔铅炉，不采用低熔点铅浇铸</b></td></tr>
+</table>
+
+<div class="note"><b>技术选择原则：</b>① <b>首选电子线单野</b>——各放疗技术对复发率的影响无统计学差异（X线18%、近距离14%、电子线16%，Seth 2026），电子线深部器官保护最好、当日可实施、费用最低；② <b>3D-CRT/IMRT仅用于确有指征的复杂病例</b>（多发性/大面积剂量分配、再程放疗需避让、需量化关键器官剂量），技术选择以医学指征为准，不因收费差异改变技术路线；③ 采用适形/调强者须在登记表"方案"栏注明理由（见9.1），由上级医师复核。</div>
+
+<h3>6.3 分割方案（共识推荐为主）</h3>
+<table>
+  <tr><th style="width:170px">方案</th><th style="width:150px">分割</th><th>总剂量</th><th>BED₁₀</th><th>适用</th><th>依据</th></tr>
+  <tr><td><b>标准方案（首选）</b></td><td><b>5 Gy×4 或 4 Gy×5，每日1次</b></td><td>20 Gy</td><td>30.0 / 28.0</td><td>初发、中低危的常规选择</td><td>2026版专家共识（国内常规推荐）</td></tr>
+  <tr><td>备选标准方案</td><td>3.5 Gy×5，每日1次</td><td>17.5 Gy</td><td>23.6</td><td>皮肤菲薄、不耐受者</td><td>国内共识模式</td></tr>
+  <tr><td>国际常规</td><td>4–5 Gy×3–5次</td><td>15–20 Gy</td><td>22.5–30</td><td>同上</td><td>Ogawa系列、DEGRO 2015</td></tr>
+  <tr><td>耳部单次</td><td>10 Gy×1</td><td>10 Gy</td><td>20.0</td><td>耳垂/耳廓低危，患者依从性差或不便多次往返</td><td>日本常用；Dong 2025耳部182例（复发率0.81%）</td></tr>
+  <tr><td style="color:var(--accent)"><b>少分割（非标准）</b></td><td style="color:var(--accent)"><b>9 Gy×2，间隔1周</b></td><td style="color:var(--accent)">18 Gy</td><td style="color:var(--accent)">34.2</td><td style="color:var(--accent)"><b>仅高危/难治性病例</b>；必须电子线，不可用浅层X线</td><td style="color:var(--accent)">专家共识（少分割模式）；本中心619例经验参考（总复发6.5%，此方案2.8%）</td></tr>
+</table>
+
+<div class="note"><b>值班处置提示：</b>标准方案每日1次、连续完成。当日值班先照第1次（4–5 Gy），次日继续第2次，不影响方案。少分割方案（18 Gy/2次）间隔1周，首次照射当日完成，第2次预约1周后。</div>
+
+<div class="warn"><b>周末跨期处置（周五下午接诊，周六周日不开机）：</b>① <b>中低危患者</b>——周五照1次标准分割（4–5 Gy）保住时间窗，周一继续每日1次完成剩余分割（20 Gy/4次：周五＋周一至周三；20 Gy/5次：周五＋周一至周四）。跨周末间隔2天对疗效影响很小（BED达标为前提，瘢痕组织无肿瘤样加速再增殖）。② <b>高危/难治性患者</b>——顺势采用少分割18 Gy/2次：周五照9 Gy，下周五照第2次，间隔正好1周，符合方案设计。③ <b>不宜</b>：中低危患者周五上9 Gy大分割（少分割适应证为高危/难治，且9 Gy×2晚期色素反应重于标准方案）；拖至周一才开始首次照射（错过24小时窗口，违反当日处置原则）。</div>
+
+<!-- ================= 六、复杂瘢痕 ================= -->
+<h2>七、第三步（复杂瘢痕）：技术选择与升级路径</h2>
+
+<h3>7.1 什么情况属于"复杂瘢痕"</h3>
+<div class="tree">
+  <div class="root">值班接诊 → 是否属于复杂情形？</div>
+  <div class="branch">
+    <div class="col simple">
+      <h4>✔ 简单（当日可独立完成）</h4>
+      <ul>
+        <li>耳垂、躯干、四肢平坦部位</li>
+        <li>初发、切口规整</li>
+        <li>远离关键器官</li>
+        <li>单发、≤5 cm</li>
+      </ul>
+      <p style="margin-top:8px"><b>→ 按第六章执行</b></p>
+    </div>
+    <div class="col complex">
+      <h4>⚠ 复杂（当日先保窗口，次日精确计划）</h4>
+      <ul>
+        <li>曲面部位：耳廓、鼻翼、腋窝、会阴、关节屈侧</li>
+        <li>邻近关键器官：颈部（甲状腺）、胸部（乳腺）、眼周、腮腺区</li>
+        <li>多发性（≥3处）或大面积（单处&gt;10 cm）</li>
+        <li>放疗后复发、≥2次复发</li>
+        <li>植皮/皮瓣修复术后</li>
+        <li>儿童（&lt;16岁，原则上不照）</li>
+      </ul>
+    </div>
+    <div class="col warn">
+      <h4>✘ 暂缓（联系上级）</h4>
+      <ul>
+        <li>妊娠</li>
+        <li>照射野累及甲状腺/性腺/胸腺</li>
+        <li>切口感染、出血、皮瓣血运障碍</li>
+        <li>同一部位既往放疗史未查清</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>7.2 复杂病例的当日处置原则</h3>
+<ol>
+  <li><b>当日仍应完成首次照射以保住时间窗</b>：先用单野电子线（6 MeV、切口+1 cm）照1次标准分割（4–5 Gy），不做复杂技术。24小时窗口的获益大于当日精确计划的获益。</li>
+  <li>登记为"待精确计划"病例，次日约诊：CT定位（热塑膜固定、铅丝标记切口、1–3 mm薄层扫描）→ 勾画（CTV=切口+0.5–1.0 cm，PTV=CTV+0.3–0.5 cm）→ 选择技术（见7.3）。</li>
+  <li>次日由具备资质的医师/物理师完成计划，值班医师不得独立处方复杂技术。</li>
+</ol>
+
+<h3>7.3 复杂病例技术选择</h3>
+<table>
+  <tr><th style="width:170px">情形</th><th>推荐技术</th><th>要点</th></tr>
+  <tr><td>耳廓、鼻翼等曲面</td><td><b>电子线+Bolus（3D打印个体化Bolus优先）</b><br>极不规则野：3D-CRT/IMRT（MLC适形）替代</td><td>0.5 cm Bolus补偿曲面；铅皮裁剪挡块保护耳道、内耳（或MLC适形），耳软骨Dmax&lt;30 Gy；曲面贴合不良时次日行CT定位精确计划</td></tr>
+  <tr><td>多发性/大面积</td><td>分批电子线 或 IMRT/VMAT（剂量分配）</td><td>不一次大面积照射；IMRT仅用于需避让关键器官的复杂布局</td></tr>
+  <tr><td>放疗后复发</td><td><b>科内会诊决定</b>：再次外照射评估（严格限制）或转诊至有近距离放疗条件的中心</td><td>原则上不重复同一部位外照射；两次间隔≥12个月；再程技术资料见附录B</td></tr>
+  <tr><td>邻近乳腺/腮腺/关节</td><td>电子线精准控深（≤6 MeV）+精细挡铅</td><td>乳腺Dmean&lt;3 Gy；关节控深+短疗程减少制动；腮腺区避让</td></tr>
+  <tr><td>面部（美容区）</td><td>6 MeV电子线+精细挡铅</td><td>保护眼球、口腔黏膜；告知色素沉着风险（非白种人可达60%）</td></tr>
+  <tr><td>植皮/皮瓣术后</td><td>电子线，时间窗特殊</td><td>术前1天 或 皮片成活后（术后约7天）开始；务必与手术医师确认血运</td></tr>
+  <tr><td>会阴</td><td>电子线控深</td><td>评估性腺安全距离；慎用浅层X线</td></tr>
+</table>
+
+<h3>7.4 分部位操作要点</h3>
+<table>
+  <tr><th style="width:130px">部位</th><th>要点</th></tr>
+  <tr><td><b>耳垂、耳廓</b></td><td>低张力部位，控制率最高（耳部复发率约1%–11%，其他部位约16%）。<b>但耳垂薄软、摆位不易</b>：建议3D打印个体化固定壳＋Bolus一体件；患者侧卧、头侧转、垂直入射，必要时5–10°机架角；耳垂可用胶带轻度牵拉固定（方向沿减张线）；挡铅保护耳道、内耳，耳软骨Dmax&lt;30 Gy。摆位难度不影响疗效——靶区表浅，6 MeV剂量建成区内深度变化影响很小</td></tr>
+  <tr><td>前胸壁</td><td>极高张力、复发率最高；女性评估乳腺受量（Dmean&lt;3 Gy）；注意呼吸动度对摆位的影响；告知复发风险相对偏高，随访加密</td></tr>
+  <tr><td>肩部、上背部</td><td>高张力；卧位摆位注意肩部体位可重复性；皮脂腺丰富，注意清洁</td></tr>
+  <tr><td>颈部</td><td>严格避让甲状腺、脊髓；电子线必须挡铅屏蔽；体位固定可重复性优先</td></tr>
+  <tr><td>关节屈侧</td><td>严格控深（≤6 MeV），保护关节软骨与骨骺；短疗程减少制动；Bolus防止皮下过剂量</td></tr>
+  <tr><td>面部</td><td>6 MeV电子线＋精细挡铅；保护眼球、腮腺、口腔黏膜；充分告知色素沉着风险</td></tr>
+  <tr><td>头皮</td><td>控深，避免深部组织受量；小野照射</td></tr>
+  <tr><td>下腹部、耻骨上</td><td>首选电子线（本院仅6 MeV）＋Bolus（0.5–1 cm），90%剂量深度1.5–1.8 cm覆盖多数瘢痕床；评估卵巢受量——电子线深部剂量最低（6 MeV在5 cm深&lt;5%），优于光子调强（后者低剂量浴扩大盆腔受照）；瘢痕床深度&gt;1.8 cm时6 MeV覆盖不足，评估3D-CRT/IMRT或转诊（附录B）；IMRT仅用于多灶或需量化盆腔剂量时</td></tr>
+  <tr><td>会阴</td><td>评估性腺安全距离；电子线控深（本院无浅层X线设备）</td></tr>
+</table>
+
+<!-- ================= 七、当日实施 ================= -->
+<h2>八、第四步：当日实施与质控</h2>
+
+<h3>8.1 当日处置流程</h3>
+<ol>
+  <li><b>知情同意</b>：告知复发率（总体&lt;10%）、色素沉着（约1/3）、皮炎（约12%）、理论致癌风险（极低，&lt;1/1000）、需随访≥2年。签署知情同意书。</li>
+  <li><b>处方</b>：值班医师开医嘱，注明诊断、部位、分层、方案、分割、总剂量、技术；<b>上级医师签字可次日补签</b>，但处方记录必须当日完成。</li>
+  <li><b>定位</b>：按6.1画野，切口+1 cm，拍照存档。</li>
+  <li><b>实施</b>：6 MeV电子线单野垂直照射（SSD 100 cm），当日剂量4–5 Gy；挡铅与Bolus按需加用。</li>
+  <li><b>验证</b>：首次治疗在场监督；电子线剂量以MU表/独立验算核对。</li>
+  <li><b>记录</b>：填写登记表（第九章），预约续照与随访。</li>
+</ol>
+
+<div class="warn"><b>病案与法律要求（应急首照后必须完成正式个体化计划）：</b>拖班/急诊当日的单野电子线首照属<b>应急处置</b>，仅以简化模拟计划完成。次日<b>必须</b>：①<b>重新定位</b>（或采用固定面具/热塑膜体位定位）；②在<b>患者本人CT影像</b>基础上完成<b>完整TPS计划</b>（靶区勾画、剂量计算、DVH评估）——个体化TPS计划最能代表该患者实际情况，是最准确的依据；③后续分割按正式计划执行，当日应急照射剂量计入总剂量（避免超量）；④病历留存完整计划资料（定位影像、靶区勾画、剂量体积参数）。这是放射治疗病历规范与医疗举证的基本要求——<b>仅有应急照射记录而无正式计划的病案在法律上不完整</b>。</div>
+
+<h3>8.2 值班质控清单（每例必核）</h3>
+<div class="card">
+  <h3>瘢痕放疗安全检查清单</h3>
+  <ul>
+    <li>□ 确认诊断（瘢痕疙瘩/增生性瘢痕）及手术日期——术后24–48小时内开始</li>
+    <li>□ 确认禁忌部位：甲状腺/性腺/胸腺不外照射；乳腺/关节/腮腺严格控深</li>
+    <li>□ 确认既往放疗史（剂量/时间/部位）；&lt;16岁不照</li>
+    <li>□ 验证BED₁₀≥20 Gy（基线）/≥30 Gy（目标）；处方剂量与分割有记录</li>
+    <li>□ 照射野=切口+1 cm；挡铅开口、Bolus厚度与贴合确认</li>
+    <li>□ 首次治疗在场监督；摆位拍照；不良事件随访已安排</li>
+  </ul>
+</div>
+
+<h3>8.3 电子线定位与摆位操作规范</h3>
+<p><b>（一）模拟定位流程</b></p>
+<ol>
+  <li>患者按治疗体位摆位（仰卧/侧卧），复杂部位用热塑膜或真空垫固定，确保可重复。</li>
+  <li><b>医生在切口（照射范围）边缘放置铅丝或造影剂标记线</b>，标明照射范围；CT薄层扫描（1–3 mm，范围覆盖靶区外5 cm）。</li>
+  <li>医生在CT上勾画靶区（CTV=切口+0.5–1.0 cm，PTV=CTV+0.3–0.5 cm），测量瘢痕床深度，确定Bolus与照射方式（本院能量固定6 MeV）。</li>
+  <li>生成计划（射野=PTV投影+约0.3 cm半影补偿），验证BED₁₀≥30 Gy，处方签字。</li>
+  <li>体表画野标记（或打印射野投影），存档摆位照片。</li>
+</ol>
+<p><b>（二）定位与治疗常备部件清单</b></p>
+<table>
+  <tr><th style="width:170px">部件</th><th>用途</th><th>说明</th></tr>
+  <tr><td>铅丝／造影标记线</td><td>定位CT标记切口范围</td><td>由医生放置；CT下清晰可见</td></tr>
+  <tr><td>BB标记点</td><td>定位参考点</td><td>技师放置</td></tr>
+  <tr><td>防水记号笔（画线笔）</td><td>体表画野</td><td>治疗期间保持清晰，模糊即补画</td></tr>
+  <tr><td>热塑膜／真空垫</td><td>体位固定</td><td>复杂部位、多部位照射</td></tr>
+  <tr><td>Bolus材料（硅胶板、水等效材料、石蜡）</td><td>表面剂量补偿</td><td>0.5–1 cm厚，紧密贴合无空气间隙</td></tr>
+  <tr><td>实心铅板／铅条（现成组合件）</td><td>射野挡铅</td><td>叠层厚度≥6 mm（6 MeV屏蔽足够）；<b>防护用铅橡胶不可代替治疗挡块</b></td></tr>
+  <tr><td>铅皮（铅片，2 mm厚）及剪刀/刀片</td><td>个体化挡块手工裁剪</td><td>按1:1计划模板裁剪，叠层至≥6 mm（6 MeV屏蔽足够），无需熔铅炉</td></tr>
+  <tr><td>挡铅托盘／电子线限光筒（applicator）</td><td>承载铅块、限定射野</td><td>6×6至20×20 cm规格</td></tr>
+  <tr><td>摆位照片（治疗位拍照）</td><td>治疗核对</td><td>每次治疗对照</td></tr>
+</table>
+<p><b>（三）铅块与Bolus的摆放要求</b></p>
+<ul>
+  <li><b>铅块（挡块）</b>：按射野形状摆放于限光筒托盘上。简单规则野（矩形/带状）可用现成铅板、铅条组合，要求：①实心铅，叠层厚度≥6 mm（6 MeV电子线屏蔽足够）；②拼接处搭接重叠、不留缝隙；③固定牢靠，位置与计划一致。<b>不规则野（耳廓、曲面、多段轮廓）采用铅皮手工裁剪叠层挡块（按1:1计划模板裁剪，叠至≥6 mm）——本院无熔铅炉，不采用低熔点铅浇铸；极不规则曲面或需精确避让者，可次日改用3D-CRT/IMRT（MLC适形＋Bolus）替代</b>。</li>
+  <li><b>Bolus</b>：按计划覆盖整个射野或部分区域；必须紧密贴合皮肤（胶带/弹力绷带固定），治疗前确认无移位。</li>
+  <li><b>摆放职责</b>：物理师/技师按计划执行；<b>医生首次治疗到场确认射野范围、Bolus与铅块位置与处方一致后签字</b>（见8.2质控清单）。</li>
+</ul>
+<p><b>（四）定位与摆位职责分工</b></p>
+<table>
+  <tr><th style="width:150px">环节</th><th>责任</th></tr>
+  <tr><td>定位扫描、体位固定</td><td>定位技师</td></tr>
+  <tr><td>照射范围确定（铅丝标记位置、体表画野）</td><td><b>医生</b>（切口+1 cm）</td></tr>
+  <tr><td>CT勾画、计划设计</td><td>医生＋物理师</td></tr>
+  <tr><td>挡块制作、Bolus选材</td><td>物理师／技师</td></tr>
+  <tr><td>每次治疗摆位（含Bolus、铅块摆放）</td><td>治疗技师</td></tr>
+  <tr><td>首次治疗到场确认并签字</td><td><b>医生</b>（核对射野范围及附件位置）</td></tr>
+  <tr><td>摆位照片、治疗记录</td><td>技师（每次）</td></tr>
+</table>
+<p><b>（五）应急首照（拖班场景）的简化定位</b>：当日由医生体表画野（切口+1 cm）→ 选用合适限光筒/现成铅块组合 → 直接单野照射（简化模拟/MU表验算）；次日按本规范第（一）至（四）条完成正式定位与完整TPS计划（见8.1病案与法律要求）。</p>
+
+<!-- ================= 八、登记与随访 ================= -->
+<h2>九、第五步：登记、随访与不良反应处理</h2>
+
+<h3>9.1 治疗登记表（电子化字段，同时为科研数据库积累数据）</h3>
+<table>
+  <tr><th style="width:150px">类别</th><th>字段</th></tr>
+  <tr><td>时间</td><td>手术日期、首照日期、距手术时间（小时）</td></tr>
+  <tr><td>病灶</td><td>部位、长×宽（cm）、初发/复发（次数）、病程（月）、活动度（红/痒/痛/生长）</td></tr>
+  <tr><td>患者</td><td>年龄、性别、家族史、既往治疗史（注射/激光/手术/放疗）</td></tr>
+  <tr><td>分层</td><td>评分（部位/既往史/大小/家族史/病程）→ 低/中/高/极高危</td></tr>
+  <tr><td>方案</td><td>技术、分割、单次剂量、总剂量、BED₁₀、射野尺寸、能量、Bolus、挡铅；应急首照日期与剂量（计入总剂量）</td></tr>
+  <tr><td>随访</td><td>3/6/12/24个月：VSS评分、复发（是/否）、不良反应（CTCAE分级）</td></tr>
+</table>
+
+<h3>9.2 随访规范</h3>
+<ul>
+  <li>节点：放疗后 <b>第1、3、6、12个月</b>，之后每年1次；高危/极高危分层随访<b>≥5年</b>。</li>
+  <li><b>复发定义（统一标准）</b>：切口范围再次出现超出原切口边缘的隆起性增生，持续≥3个月（客观），或伴瘙痒疼痛评分升高（主观）。随访对照基线照片。</li>
+</ul>
+
+<h3>9.3 急性不良反应处理</h3>
+<p>瘢痕放疗总剂量低（≤20 Gy），严重急性反应少见，但值班医师须会处理，尤其是与切口相关的情况——这也是整形外科最关心的环节。</p>
+<table>
+  <tr><th style="width:150px">情况</th><th>表现与分级</th><th>处理</th></tr>
+  <tr><td>放射性皮炎（红斑、脱皮）</td><td>1–2级：红斑、干性脱皮、局限性湿性脱皮</td><td>继续放疗；外用激素软膏控制炎症、抗生素软膏预防感染；保持切口清洁干燥</td></tr>
+  <tr><td>湿性脱皮融合（≥3级）</td><td>大范围湿性脱皮、渗液；<b>罕见</b>（单中心70例仅1例，PMID 38582626）</td><td><b>暂停放疗1–2天</b>，湿性愈合敷料（凡士林纱布/藻酸盐）、激素软膏、必要时口服抗生素；愈合后完成剩余分割（总疗程短，暂停1–2天对复发控制影响很小）</td></tr>
+  <tr><td>切口感染/裂开</td><td>红肿热痛加重、脓性渗出、切口哆开</td><td>引流＋清创＋抗生素＋湿性愈合（文献2例按此处理均愈合，18个月随访无复发，PMID 40827224）；<b>与手术医师共同处理</b>；一般不影响最终疗效</td></tr>
+  <tr><td>皮瓣/植皮血运障碍</td><td>皮瓣苍白/紫绀、毛细血管充盈延迟</td><td><b>立即暂停放疗</b>，手术科会诊（多见于时间窗选择错误或照射野过大）</td></tr>
+  <tr><td>出血</td><td>切口渗血、活动性出血</td><td>少见；压迫止血，联系手术科室</td></tr>
+  <tr><td>急性疼痛/红斑加重</td><td>照射区灼痛、充血明显</td><td>冷敷、外用激素、必要时口服止痛药；排除感染后继续放疗</td></tr>
+</table>
+<p><b>患者宣教</b>：放疗期间及结束后2周，切口保持清洁干燥；出现红肿热痛加重、渗液、发热，及时联系放疗科或整形外科，不要自行处理。</p>
+
+<h3>9.4 晚期反应处理</h3>
+<ul>
+  <li><b>色素沉着/减退</b>：最常见（约1/3患者），6–12个月渐退；防晒、保湿；持久不退者可用激光（整形外科处理）。</li>
+  <li><b>毛细血管扩张、萎缩</b>：激光治疗；硅胶片、按摩。</li>
+  <li><b>慢性溃疡（罕见）</b>：转诊整形外科。</li>
+  <li><b>继发肿瘤风险</b>：理论风险&lt;1/1000，远低于深部肿瘤放疗，已写入知情同意；也是儿童慎照的原因之一。</li>
+</ul>
+
+<!-- ================= 九、特殊情形 ================= -->
+<h2>十、特殊情形速查</h2>
+<table>
+  <tr><th style="width:150px">情形</th><th>处理</th></tr>
+  <tr><td>儿童（&lt;16岁）</td><td>原则上避免放疗；必须实施（反复复发影响功能）→ 上级会诊，低剂量（BED&lt;20 Gy），电子线控深，家长书面知情，终身随访</td></tr>
+  <tr><td>妊娠</td><td>绝对禁忌；分娩并停止哺乳后再行手术+放疗</td></tr>
+  <tr><td>再程放疗</td><td>不重复同一部位外照射；查首次剂量与时间（间隔≥12个月）；科内会诊决定再程方案（近距离放疗本院暂未开展，见附录B）；关注晚期毒性</td></tr>
+  <tr><td>乳腺区（非哺乳期）</td><td>相对禁忌：充分知情（理论致癌风险、筛查影响），电子线小野控深，或与外科讨论以TAC+5-FU注射替代放疗（见附录A）</td></tr>
+  <tr><td>陈旧性老疤（病程≥3年）</td><td>复发风险高（分层自动上调）；放疗不替代手术——务必确认手术彻底切除（核心切除、保留真皮床）；减张缝合与放疗同等重要</td></tr>
+  <tr><td>高张力部位（前胸壁/肩/耻骨上）</td><td>即使初发也按高危分层；告知复发率相对较高，随访加密</td></tr>
+  <tr><td>多发性/瘢痕体质</td><td>分批分部位治疗；每处独立分层；遗传咨询与长期随访</td></tr>
+</table>
+
+<!-- ================= 十、剂量速查 ================= -->
+<h2>十一、剂量速查与BED计算</h2>
+<p>BED = n×d×(1+d/α/β)，瘢痕按急性反应组织取 <b>α/β=10</b>。目标：<b>BED₁₀ ≥ 30 Gy</b>（低危耳部可≥20 Gy）。</p>
+<table>
+  <tr><th>方案</th><th>总剂量</th><th>BED₁₀</th><th>EQD2₁₀</th><th>评估</th></tr>
+  <tr><td>5 Gy×4 电子线（标准）</td><td>20 Gy</td><td>30.0</td><td>25.0</td><td class="okbox" style="margin:0;padding:2px 8px">✔ 达标</td></tr>
+  <tr><td>4 Gy×5 电子线（标准）</td><td>20 Gy</td><td>28.0</td><td>23.3</td><td class="okbox" style="margin:0;padding:2px 8px">✔ 达标</td></tr>
+  <tr><td>3.5 Gy×5 电子线</td><td>17.5 Gy</td><td>23.6</td><td>19.7</td><td class="note" style="margin:0;padding:2px 8px">△ 接近基线</td></tr>
+  <tr><td>9 Gy×2 电子线（少分割）</td><td>18 Gy</td><td>34.2</td><td>28.5</td><td class="okbox" style="margin:0;padding:2px 8px">✔ 达标</td></tr>
+  <tr><td>10 Gy×1 电子线（耳部单次）</td><td>10 Gy</td><td>20.0</td><td>16.7</td><td class="note" style="margin:0;padding:2px 8px">△ 仅低危耳部</td></tr>
+  <tr><td style="color:var(--accent)">2 Gy×6 浅层X线</td><td style="color:var(--accent)">12 Gy</td><td style="color:var(--accent)">14.4</td><td style="color:var(--accent)">12.0</td><td class="warn" style="margin:0;padding:2px 8px">✘ 证据不足，不推荐</td></tr>
+</table>
+<p style="font-size:12px; color:#666;">近距离放疗（HDR）分割方案见附录B——本院暂不开展。</p>
+
+<div class="warn"><b>剂量要点（推荐）：</b>① 总物理剂量不超过20 Gy（国内共识）；② BED₁₀不足20 Gy的方案不建议作为标准方案使用；③ 达到BED₁₀≥30即可，<b>不建议为追求更高剂量而加量</b>——2026年大规模meta回归显示解剖部位（张力）对复发的影响超越BED，加量主要增加色素沉着等不良反应。</div>
+
+<!-- ================= 附录A 注射治疗 ================= -->
+<h2>附录A：病灶内注射治疗（TAC/5-FU）——本院暂不开展，资料性内容</h2>
+<p>病灶内注射是瘢痕疙瘩综合治疗的常用手段，<b>本院放疗科暂不开展</b>，此处收录供值班医师了解治疗体系全貌、与整形外科沟通及讨论转诊时参考。</p>
+<table>
+  <tr><th style="width:160px">药物</th><th>机制</th><th>常用方案</th><th>注意</th></tr>
+  <tr><td><b>曲安奈德（TAC）</b></td><td>糖皮质激素：抑制成纤维细胞增殖、下调I/III型胶原合成、抑制TGF-β、抗炎</td><td>10–40 mg/mL 病灶内注射，每4–6周1次，按病灶体积给药</td><td>皮肤萎缩、色素减退/沉着、毛细血管扩张、注射痛；大剂量反复使用可致局部脂肪萎缩</td></tr>
+  <tr><td><b>5-氟尿嘧啶（5-FU）</b></td><td>抗代谢药：干扰DNA/RNA合成，抑制成纤维细胞增殖</td><td>50 mg/mL，每次0.2–0.5 mL/病灶，每周至每2周1次，4–8次为一疗程</td><td>注射时烧灼痛明显；色素沉着；小剂量局部使用无全身骨髓毒性</td></tr>
+  <tr><td><b>TAC+5-FU联合（常用）</b></td><td>机制互补：激素抗炎＋抗代谢抗增殖</td><td>TAC 10–20 mg 混合 5-FU 25–50 mg，每3–4周1次</td><td>联合可减少各自剂量，减轻激素萎缩副作用；具体剂量与注射技术以整形外科常规为准</td></tr>
+</table>
+<p><b>与放疗的关系（文献定位）：</b></p>
+<ul>
+  <li><b>低危替代</b>：耳垂小瘢痕切除后，TAC±5-FU注射与放疗疗效相当（RCT，PMID 29534885；2026年耳部meta：TAC 12% vs RT 13%，但放疗更持久，PMID 41636029）——这是"低危豁免放疗"讨论的循证基础。</li>
+  <li><b>高危联合</b>：放疗＋术后序贯注射可降低复发、改善瘙痒疼痛（4年回顾，PMID 40425880；三重治疗meta，PMID 32224709；手术+RT后序贯注射远期缓解率89%，PMID 21407049）。</li>
+  <li><b>放疗后复发补救</b>：再程放疗受限时，注射是主要补救手段之一。</li>
+</ul>
+<p><b>时机</b>（若今后开展）：通常于放疗结束后4–6周开始（避开急性放射性皮炎期），每3–4周1次，疗程由整形外科根据病灶反应决定（一般2–4次）。既往注射史本身是复发风险因素，分层评分"既往史"项已计入。</p>
+
+<!-- ================= 附录B 近距离放疗 ================= -->
+<h2>附录B：近距离放疗（HDR）——本院暂不开展，资料性内容</h2>
+<p>本院目前尚无后装治疗机，HDR方案仅作资料收录，<b>待后装机安装、验收及人员培训完成后另行制定实施细则</b>。现阶段复杂病例以电子线精确计划（多野、Bolus、挡铅、CT定位）为主要手段。依据GEC-ESTRO近距离治疗规范（2025，Handbook Ch.32）。</p>
+<table>
+  <tr><th style="width:150px">方案</th><th>处方深度</th><th>BED₁₀</th><th>说明</th></tr>
+  <tr><td><b>3×6 Gy（首选）</b></td><td>5 mm</td><td>28.8</td><td>术后7小时内首次，次日完成剩余2次；全程等驻留时间（不推荐几何优化，避免进出点皮肤热点）</td></tr>
+  <tr><td>2×7 Gy</td><td>5 mm</td><td>23.8</td><td>常用替代</td></tr>
+  <tr><td>1×13 Gy</td><td>5–7 mm</td><td>29.9</td><td>单次方案</td></tr>
+</table>
+<p><b>技术要点（资料性）</b>：组织间插植——6F中空塑料导管，皮下5–7 mm，导管间距1.0–1.5 cm平行于切口，活性长度=切口长度+两端各5 mm；表面施源器（Leipzig/Freiburg）——处方深度5 mm，等间距导管，等驻留时间。HDR用于耳廓等曲面部位、放疗后复发再程治疗；89.7个月中位随访研究显示耳部复发风险低（HR 0.38，PMID 41015665），但长期随访真实复发率约39%——随访不足会低估复发。</p>
+
+<!-- ================= 参考文献 ================= -->
+<h2>主要参考文献</h2>
+<p style="font-size:12px; line-height:1.9;">
+<b>指南与共识</b><br>
+1. 瘢痕疙瘩规范化辅助放射治疗的专家共识（2026版）. 组织工程与重建外科杂志, 2026, 22(2): 153.<br>
+2. 中国整形美容协会瘢痕医学分会. 中国瘢痕疙瘩临床治疗推荐指南. 中华整形外科杂志, 2018, 34(5).<br>
+3. GEC-ESTRO Handbook of Brachytherapy, Part II, Chapter 32: Keloids. Version 1, 2025.<br>
+4. Seegenschmiedt MH, et al. DEGRO guidelines for the radiotherapy of non-malignant disorders: part III: hyperproliferative disorders. Strahlenther Onkol 2015. PMID 25753848.<br>
+5. Ogawa R, et al. Diagnosis and Treatment of Keloids and Hypertrophic Scars—Japan Scar Workshop Consensus Document 2018. Burns Trauma 2019. PMID 31890718.<br>
+6. Ogawa R. The Most Current Algorithms for the Treatment and Prevention of Hypertrophic Scars and Keloids: A 2020 Update. Plast Reconstr Surg 2022. PMID 34813576.<br>
+<b>关键循证文献</b><br>
+7. Chen ZA, et al. Post-surgical electron beam radiotherapy for prevention of keloid recurrence: 619 cases. Clin Med (Lond) 2026. PMID 41903653.（本中心经验参考）<br>
+8. Lin D, et al. Anatomical location overrides BED as a predictor of keloid recurrence: systematic review and meta-regression. Strahlenther Onkol 2026. PMID 42207254.<br>
+9. Peng Q, et al. Timing of postoperative RT after keloid excision: systematic review and meta-analysis. Aesthetic Plast Surg 2025. PMID 40346340.<br>
+10. Seth I, et al. Post-excisional radiotherapy for keloid treatment: systematic review and meta-analysis. JPRAS 2026. PMID 41401628.<br>
+11. Mankowski P, et al. Optimizing radiotherapy for keloids: a meta-analysis. Ann Plast Surg 2017. PMID 28177974.<br>
+12. Kal HB, Veen RE. Biologically effective doses of postoperative radiotherapy in the prevention of keloids. Strahlenther Onkol 2005. PMID 16254707.<br>
+13. Hwang NH, et al. Effect of the biologically effective dose of electron beam RT on recurrence rate after keloid excision: a meta-analysis. Radiother Oncol 2022. PMID 35688397.<br>
+14. Grobien M, et al. Treatment of refractory keloid by postoperative HDR brachytherapy: 89.7-month median follow-up. Brachytherapy 2025. PMID 41015665.<br>
+15. Dong 等. 耳部术后单次9.5 Gy与10 Gy比较. Dermatol Surg 2025. PMID 39361622.<br>
+16. Ramelyte E, et al. Post-excision soft X-ray radiotherapy for keloids: experience in a tertiary referral center. Dermatology 2024. PMID 38897192.<br>
+17. Wu B, et al. Combining steroid plus 5-fluorouracil injection with radiotherapy versus injection alone for keloids: a 4-year retrospective study. Aesthetic Plast Surg 2025. PMID 40425880.<br>
+18. Khalid FA, et al. The efficacy of excision followed by intralesional 5-fluorouracil and triamcinolone acetonide versus excision followed by radiotherapy in the treatment of ear lobule keloids. Burns 2018. PMID 29534885.<br>
+19. 耳廓瘢痕疙瘩切除术后放疗与曲安奈德注射比较的系统综述与meta分析. Facial Plast Surg Aesthet Med 2026. PMID 41636029.<br>
+20. Ellis MM, et al. The efficacy of surgical excision plus adjuvant multimodal therapies in the treatment of keloids: a systematic review and meta-analysis. Dermatol Surg 2020. PMID 32224709.<br>
+21. Yamawaki S, et al. Keloids can be forced into remission with surgical excision and radiation, followed by adjuvant therapy. Ann Plast Surg 2011. PMID 21407049.<br>
+22. Hao Y, et al. A nomogram with the keloid activity assessment scale for predicting the recurrence of chest keloid after surgery and radiotherapy. Aesthetic Plast Surg 2023. PMID 36414722.<br>
+23. 瘢痕疙瘩切除联合放疗后伤口感染2例及文献复习. Clin Cosmet Investig Dermatol 2025. PMID 40827224.<br>
+24. Gold MH, et al. Assessing keloid recurrence following surgical excision and radiation. Burns Trauma 2020. PMID 33225004.<br>
+25. Fernandes J, et al. A single-institution review of the use of radiation in the adjuvant and definitive management of keloids. Clin Oncol (R Coll Radiol) 2024. PMID 38582626.（急性不良反应部分引用）
+</p>
+
+<div class="doc-foot">
+  <span>上海九院放疗中心 · 瘢痕疙瘩术后放疗常规 v1.0（值班操作指引）</span>
+  <span>内部讨论稿</span>
+</div>
+
+</div>
+</body>
+</html>
