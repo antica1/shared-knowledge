@@ -2,8 +2,9 @@
   "version": 1,
   "skills": {
     "shared-knowledge": {
-      "source": "antica1/shared-knowledge",
-      "sourceType": "github",
+      "source": "git@github.com:antica1/shared-knowledge.git",
+      "sourceUrl": "git@github.com:antica1/shared-knowledge.git",
+      "sourceType": "git",
       "skillPath": "SKILL.md",
       "computedHash": "c967b655a54c0782820321303b1b6132f9636bb252f35c73bc9ec062dc7c44e8"
     }
