@@ -63,6 +63,12 @@
   .card h3{margin:0 0 8px; color:var(--main); font-size:15px;}
   .card ul{margin-left:18px;}
 
+  /* 寄语 */
+  .message{border:2px solid var(--main); border-radius:10px; padding:24px 28px; margin:32px 0 24px; background:#eef3f9; font-size:15px;}
+  .message-title{font-size:18px; font-weight:700; color:var(--main); margin-bottom:12px; text-align:center; letter-spacing:2px;}
+  .message p{margin:9px 0; line-height:2;}
+  .sig{text-align:right; color:var(--main); font-weight:600; margin-top:14px;}
+
   /* 页脚 */
   .doc-foot{margin-top:40px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:#888; display:flex; justify-content:space-between;}
 
@@ -375,7 +381,7 @@
   <tr><td>患者</td><td>年龄、性别、家族史、既往治疗史（注射/激光/手术/放疗）</td></tr>
   <tr><td>分层</td><td>评分（部位/既往史/大小/家族史/病程）→ 低/中/高/极高危</td></tr>
   <tr><td>方案</td><td>技术、分割、单次剂量、总剂量、BED₁₀、射野尺寸、能量、Bolus、挡铅；应急首照日期与剂量（计入总剂量）</td></tr>
-  <tr><td>随访</td><td>3/6/12/24个月：VSS评分、复发（是/否）、不良反应（CTCAE分级）</td></tr>
+  <tr><td>随访</td><td>3/6/12/24个月：VSS评分（量表详目见附录C）、瘙痒/疼痛VAS、复发（是/否）、不良反应（CTCAE分级）</td></tr>
 </table>
 
 <h3>9.2 随访规范</h3>
@@ -462,6 +468,63 @@
 </table>
 <p><b>技术要点（资料性）</b>：组织间插植——6F中空塑料导管，皮下5–7 mm，导管间距1.0–1.5 cm平行于切口，活性长度=切口长度+两端各5 mm；表面施源器（Leipzig/Freiburg）——处方深度5 mm，等间距导管，等驻留时间。HDR用于耳廓等曲面部位、放疗后复发再程治疗；89.7个月中位随访研究显示耳部复发风险低（HR 0.38，PMID 41015665），但长期随访真实复发率约39%——随访不足会低估复发。</p>
 
+<!-- ================= 附录C 瘢痕评估量表 ================= -->
+<h2>附录C：瘢痕评估量表详目</h2>
+<p>国际上通用的瘢痕评估量表以<b>VSS（温哥华瘢痕量表）</b>与<b>POSAS（患者与观察者瘢痕评估量表）</b>为主；JSS（日本瘢痕研讨会量表）用于瘢痕疙瘩的诊断分级，KAAS（瘢痕疙瘩活动度评估量表）用于活动度与复发预测。本院随访统一采用<b>VSS＋瘙痒/疼痛VAS</b>，科研病例加用POSAS，初诊风险分层采用KAAS（见5.1）。</p>
+
+<h3>C.1 VSS——温哥华瘢痕量表（Vancouver Scar Scale，Sullivan 1990）</h3>
+<table>
+  <tr><th style="width:150px">项目</th><th style="width:90px">分值</th><th>评分标准</th></tr>
+  <tr><td><b>血管分布</b>（Vascularity）</td><td class="center">0–3</td><td>0=正常肤色；1=轻度发红/粉红；2=明显发红；3=紫红色</td></tr>
+  <tr><td><b>色泽</b>（Pigmentation）</td><td class="center">0–2</td><td>0=与正常肤色一致；1=色素减退（浅于正常）；2=色素沉着（深于正常）</td></tr>
+  <tr><td><b>柔软度</b>（Pliability）</td><td class="center">0–5</td><td>0=正常；1=柔软（轻微阻力）；2=柔顺（压力下可弯曲）；3=坚实（不弯曲但可压缩）；4=带状（索状，拉伸时退缩）；5=挛缩（永久缩短致畸形）</td></tr>
+  <tr><td><b>厚度</b>（Height）</td><td class="center">0–3</td><td>0=平坦；1=&lt;2 mm；2=2–5 mm；3=&gt;5 mm</td></tr>
+</table>
+<p><b>总分0–13分，分数越高瘢痕越重</b>；由观察者根据触诊与视诊评定。</p>
+
+<h3>C.2 POSAS——患者与观察者瘢痕评估量表（Patient and Observer Scar Assessment Scale，Draaijers 2004）</h3>
+<p><b>观察者部分</b>（Observer Scale，6项，各1–10分，1=正常皮肤，10=最严重）：</p>
+<table>
+  <tr><th style="width:150px">项目</th><th>内容</th></tr>
+  <tr><td>血管分布（Vascularization）</td><td>瘢痕内血管多少（按压后颜色变化评估）</td></tr>
+  <tr><td>色泽（Pigmentation）</td><td>颜色与正常皮肤差异</td></tr>
+  <tr><td>厚度（Thickness）</td><td>与正常皮肤的高度差</td></tr>
+  <tr><td>表面粗糙度（Relief）</td><td>表面是否光滑/凹凸不平</td></tr>
+  <tr><td>柔软度（Pliability）</td><td>抵抗压迫/变形的程度</td></tr>
+  <tr><td>表面积（Surface area）</td><td>与原始损伤范围的面积比</td></tr>
+</table>
+<p><b>患者部分</b>（Patient Scale，6项，各1–10分，1=正常，10=最严重）：</p>
+<table>
+  <tr><th style="width:150px">项目</th><th>内容</th></tr>
+  <tr><td>疼痛（Pain）</td><td>瘢痕区域疼痛程度（过去数周）</td></tr>
+  <tr><td>瘙痒（Pruritus）</td><td>瘙痒程度（过去数周）</td></tr>
+  <tr><td>颜色差异（Color）</td><td>颜色与正常皮肤差异（患者自评）</td></tr>
+  <tr><td>厚度差异（Thickness）</td><td>与正常皮肤高度差（患者自评）</td></tr>
+  <tr><td>柔韧性差异（Pliability）</td><td>柔韧程度（患者自评）</td></tr>
+  <tr><td>总体印象（Overall opinion）</td><td>对瘢痕整体外观的评分</td></tr>
+</table>
+<p><b>总分：观察者6–60分，患者6–60分</b>；患者部分覆盖疼痛与瘙痒——瘢痕疙瘩的主要症状，是其优于VSS之处。</p>
+
+<h3>C.3 JSS——日本瘢痕研讨会瘢痕量表（Japan Scar Workshop Scar Scale，JSW共识2018）</h3>
+<ul>
+  <li>用途：瘢痕疙瘩的<b>诊断与分级</b>（区分瘢痕疙瘩/增生性瘢痕/成熟瘢痕），按患者因素与部位危险因素计分，结合病灶形态学判断（PMID 31890718）。</li>
+  <li>本院用法：初诊疑似病例按JSS标准判断是否为真性瘢痕疙瘩（决定放疗指征，见第二章）。</li>
+</ul>
+
+<h3>C.4 KAAS——瘢痕疙瘩活动度评估量表（Keloid Activity Assessment Scale，北京协和2023）</h3>
+<ul>
+  <li>用途：<b>活动度与复发预测</b>——评估红斑/充血、瘙痒、疼痛、持续生长等活跃征象，预测术后放疗复发风险（AUC 0.858，优于VSS 0.711；PMID 36414722）。</li>
+  <li>本院用法：初诊风险分层时与第五章评分表配合使用；治疗前后对照。</li>
+</ul>
+
+<h3>C.5 本院随访用法</h3>
+<ul>
+  <li><b>常规随访</b>：VSS（0–13）＋瘙痒/疼痛VAS（视觉模拟评分，0–10），节点见9.2（第1、3、6、12个月，之后每年1次）。</li>
+  <li><b>科研/高危病例</b>：加用POSAS（观察者+患者双维度）。</li>
+  <li><b>初诊分层</b>：KAAS配合第五章评分；JSS用于真性瘢痕疙瘩判定。</li>
+  <li>所有评分记录入登记表随访栏（见9.1），对照基线照片。</li>
+</ul>
+
 <!-- ================= 参考文献 ================= -->
 <h2>主要参考文献</h2>
 <p style="font-size:12px; line-height:1.9;">
@@ -493,6 +556,14 @@
 24. Gold MH, et al. Assessing keloid recurrence following surgical excision and radiation. Burns Trauma 2020. PMID 33225004.<br>
 25. Fernandes J, et al. A single-institution review of the use of radiation in the adjuvant and definitive management of keloids. Clin Oncol (R Coll Radiol) 2024. PMID 38582626.（急性不良反应部分引用）
 </p>
+
+<!-- ================= 寄语 ================= -->
+<div class="message">
+  <div class="message-title">写在最后 · 给同事的寄语</div>
+  <p>瘢痕疙瘩的术后放疗，听起来简单，疗效也好，但放射治疗终究有其固有的风险。请每一位经手的同事牢记：严格把握放疗指征，牢记绝对与相对禁忌，仔细询问病史与既往治疗经历，认真做好风险分层，逐项核对照射野与照射技术，再为患者完成治疗。用我们的严谨，给整形外科的同事一份放心的辅助放疗，给患者一份安心的疗效。</p>
+  <p>另请各位技师：在各机房及CT模拟定位室常备多块可自由裁剪的Bolus（至少三块），并备好6 mm铅皮、剪刀等制作个体化铅挡的工具，确保任何时段都能按规范完成治疗。</p>
+  <div class="sig">—— 放疗中心</div>
+</div>
 
 <div class="doc-foot">
   <span>上海九院放疗中心 · 瘢痕疙瘩术后放疗常规 v1.0（值班操作指引）</span>
