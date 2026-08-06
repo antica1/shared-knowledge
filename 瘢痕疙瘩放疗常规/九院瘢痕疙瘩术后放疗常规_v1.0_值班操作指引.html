@@ -63,12 +63,6 @@
   .card h3{margin:0 0 8px; color:var(--main); font-size:15px;}
   .card ul{margin-left:18px;}
 
-  /* 寄语 */
-  .message{border:2px solid var(--main); border-radius:10px; padding:24px 28px; margin:32px 0 24px; background:#eef3f9; font-size:15px;}
-  .message-title{font-size:18px; font-weight:700; color:var(--main); margin-bottom:12px; text-align:center; letter-spacing:2px;}
-  .message p{margin:9px 0; line-height:2;}
-  .sig{text-align:right; color:var(--main); font-weight:600; margin-top:14px;}
-
   /* 页脚 */
   .doc-foot{margin-top:40px; padding-top:10px; border-top:1px solid var(--line); font-size:12px; color:#888; display:flex; justify-content:space-between;}
 
@@ -78,6 +72,7 @@
     h2{page-break-after:avoid;}
     table,.tree,.card,.flow{page-break-inside:avoid;}
   }
+@media print{*{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}}
 </style>
 </head>
 <body>
@@ -207,7 +202,7 @@
 <table>
   <tr><th style="width:140px">技术</th><th>适用</th><th>要点</th></tr>
   <tr><td><b>电子线 6 MeV（本院唯一能量，首选）</b></td><td>绝大多数病例；骨面、神经、腺体邻近部位必须用电子线</td><td>90%剂量深度约1.5–1.8 cm，覆盖多数瘢痕床；表面剂量约75–80%，常规加Bolus（0.5–1 cm）提升表面剂量；深部组织受量极低；瘢痕床深度&gt;1.8 cm时6 MeV覆盖不足，评估3D-CRT/IMRT（见7.3）</td></tr>
-  <tr><td>浅层X线（本院未配备）</td><td>平坦体表低危瘢痕（部分中心经验，本院不用）</td><td>穿透浅（约1 cm），下腹部、耻骨部慎用；低BED方案（12 Gy/6次）证据不足，不推荐</td></tr>
+  <tr><td>浅层X线（本院未配备）</td><td>平坦体表低危瘢痕（部分中心经验，本院不用）</td><td>穿透浅（约1 cm），下腹部、耻骨部慎用；本院未配备，不作推荐</td></tr>
   <tr><td>Bolus（组织补偿膜）</td><td>体表不规则、表面剂量不足时</td><td>0.5–1 cm 硅胶/水等效材料，紧密贴合无空气间隙；3D打印个体化Bolus用于耳廓等曲面</td></tr>
   <tr><td>挡铅（Cutout）</td><td>所有电子线照射</td><td>实心铅：铅皮裁剪叠层（2 mm×3层≈6 mm，6 MeV屏蔽足够）或现成铅板组合；开口=射野外缘+约0.3 cm半影补偿；<b>本院无熔铅炉，不采用低熔点铅浇铸</b></td></tr>
 </table>
@@ -434,7 +429,7 @@
   <tr><td>3.5 Gy×5 电子线</td><td>17.5 Gy</td><td>23.6</td><td>19.7</td><td class="note" style="margin:0;padding:2px 8px">△ 接近基线</td></tr>
   <tr><td>9 Gy×2 电子线（少分割）</td><td>18 Gy</td><td>34.2</td><td>28.5</td><td class="okbox" style="margin:0;padding:2px 8px">✔ 达标</td></tr>
   <tr><td>10 Gy×1 电子线（耳部单次）</td><td>10 Gy</td><td>20.0</td><td>16.7</td><td class="note" style="margin:0;padding:2px 8px">△ 仅低危耳部</td></tr>
-  <tr><td style="color:var(--accent)">2 Gy×6 浅层X线</td><td style="color:var(--accent)">12 Gy</td><td style="color:var(--accent)">14.4</td><td style="color:var(--accent)">12.0</td><td class="warn" style="margin:0;padding:2px 8px">✘ 证据不足，不推荐</td></tr>
+  <tr><td>12 Gy×1（单次）</td><td>12 Gy</td><td>26.4</td><td>22.0</td><td>△ 探索性单次方案（BED₁₀&lt;30）——仅用于临床研究（KELO-RT），不作标准方案</td></tr>
 </table>
 <p style="font-size:12px; color:#666;">本院不开展近距离放疗。</p>
 
@@ -530,14 +525,6 @@
 27. Jiang P, et al. Perioperative interstitial high-dose-rate brachytherapy for the treatment of recurrent keloids: feasibility and early results. Int J Radiat Oncol Biol Phys 2016. PMID 26867882.（再程放疗）<br>
 28. Fortson JK, et al. Atypical presentation of mucoepidermoid carcinoma after radiation therapy for the treatment of keloids. Ear Nose Throat J 2012. PMID 22829034.（再程放疗致癌警示）
 </p>
-
-<!-- ================= 寄语 ================= -->
-<div class="message">
-  <div class="message-title">写在最后 · 给同事的寄语</div>
-  <p>瘢痕疙瘩的术后放疗，听起来简单，疗效也好，但放射治疗终究有其固有的风险。请每一位经手的同事牢记：严格把握放疗指征，牢记绝对与相对禁忌，仔细询问病史与既往治疗经历，认真做好风险分层，逐项核对照射野与照射技术，再为患者完成治疗。用我们的严谨，给整复外科的同事一份放心的辅助放疗，给患者一份安心的疗效。</p>
-  <p>另请各位技师：在各机房及CT模拟定位室常备多块可自由裁剪的Bolus（至少三块），并备好6 mm铅皮、剪刀等制作个体化铅挡的工具，确保任何时段都能按规范完成治疗。</p>
-  <div class="sig">—— 放疗中心</div>
-</div>
 
 <div class="doc-foot">
   <span>上海九院放疗中心 · 瘢痕疙瘩术后放疗常规 v1.0（值班操作指引）</span>
