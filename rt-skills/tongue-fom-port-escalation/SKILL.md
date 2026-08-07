@@ -1,6 +1,6 @@
 ---
 name: tongue-fom-port-escalation
-description: "Use when 舌癌累及口底术后PORT：同侧颈Ⅰ-Ⅲ提级60Gy+对侧Ia/Ib/II预防54Gy。"
+description: "Use when 舌癌累及口底术后PORT：同侧颈Ⅰ-Ⅲ提级60Gy+双侧Ia/Ib/IIa前缘高危区。"
 version: 1.0.0
 author: Zhu Guopei / Shanghai Ninth People's Hospital
 license: MIT
